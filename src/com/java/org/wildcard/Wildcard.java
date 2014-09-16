@@ -1,5 +1,7 @@
 package com.java.org.wildcard;
 
+import java.util.Collection;
+
 public class Wildcard {
 
 	
@@ -35,6 +37,16 @@ public class Wildcard {
 		}
 		//All characters were stripped.
 		return "";
+	}
+	
+	public static boolean matchOneOf(String pattern, Collection<String> inputs) {
+		for (String input: inputs) {
+			if (!match(pattern, input)) {
+				continue;
+			}
+			return true;
+		}
+		return false;
 	}
 	
 	public static boolean match(String pattern, String input) {
